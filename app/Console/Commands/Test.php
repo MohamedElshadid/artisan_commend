@@ -57,10 +57,12 @@ class Test extends Command
                             ->orderBy('count','asc')
                             ->get();
         }
-        $data = [
-            'content' => $data,
-        ];
-        File::put('resources/js/test.js',json_encode($data,true));
+        $string = 'var dd= {
+            content : '. $data .'
+        }';
+        
+        File::put('resources/js/test.js','');
+        File::append('resources/js/test.js', $string);
 
 
     }
